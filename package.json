@@ -8,6 +8,7 @@
   "description": "Simple node.js server that lets different websocket clients talk to each other. ",
   "main": "src/index.js",
   "scripts": {
+    "start": "nodejs src/index.js",
     "devstart": "nodemon src/index.js"
   },
   "author": "",
