@@ -1,6 +1,7 @@
 FROM alpine:latest AS cloner
 RUN apk add git
 WORKDIR /root/
+ADD https://api.github.com/repos/BertoldVdb/websocket-group/git/refs/heads/master version.json
 RUN git clone https://github.com/BertoldVdb/websocket-group.git
 
 FROM node:12
