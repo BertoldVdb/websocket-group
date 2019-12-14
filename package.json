@@ -1,0 +1,25 @@
+{
+  "name": "websocket-group",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/BertoldVdb/websocket-group.git",
+    "type": "git"
+  },
+  "description": "Simple node.js server that lets different websocket clients talk to each other. ",
+  "main": "src/index.js",
+  "scripts": {
+    "devstart": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "morgan": "^1.9.1",
+    "websocket": "^1.0.31"
+  }
+}
