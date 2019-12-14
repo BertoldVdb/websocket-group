@@ -5,7 +5,6 @@ ADD https://api.github.com/repos/BertoldVdb/websocket-group/git/refs/heads/maste
 RUN git clone https://github.com/BertoldVdb/websocket-group.git
 
 FROM node:12
-
 ENV user node
 
 COPY --from=cloner /root/websocket-group /home/$user/
