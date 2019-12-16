@@ -9,8 +9,8 @@ async function runApp() {
     const websocket = require('./modules/websocket')
     websocket.apply(server)
 
-    port = config.port || 8080
-    host = config.listenAddr
+    port = config.PORT || 8080
+    host = config.LISTEN_ADDR
 
     server.listen(port, host);
     server.on('listening', function () {

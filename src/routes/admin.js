@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const config = require('../modules/config')
 
 router.use((req, res, next) => {
-    if (config.apiKey) {
+    if (config.API_KEY) {
         authHeader = req.header('Authorization')
         if (typeof authHeader === 'string') {
             parts = authHeader.split("Basic ");
@@ -12,7 +12,7 @@ router.use((req, res, next) => {
                 const hash = crypto.createHash('sha256');
                 hash.update(Buffer.from(parts[1], 'base64'));
 
-                if (hash.digest('hex') == config.apiKey) {
+                if (hash.digest('hex') == config.API_KEY) {
                     return next()
                 }
             }

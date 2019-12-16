@@ -2,12 +2,13 @@ const crypto = require('crypto');
 const fs = require('fs')
 const config = require('./config')
 
-var turnSecret = config.turnSecret
+var turnSecret = config.TURN_SECRET
 
 if (!turnSecret) {
-    if (config.turnConfigFile) {
+    file = config.TURN_CONFIGFILE
+    if (file) {
         try {
-            configFile = fs.readFileSync(config.turnConfigFile).toString()
+            configFile = fs.readFileSync(file).toString()
             configFile.split('\n').forEach((line) => {
                 line = line.trim()
                 parts = line.split('=')
@@ -39,6 +40,6 @@ module.exports.createCredentials = function () {
     return {
         username: username,
         password: hm.read(),
-        host: config.turnHost
+        host: config.TURN_HOST
     };
 }
