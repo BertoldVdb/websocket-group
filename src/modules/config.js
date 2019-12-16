@@ -1,13 +1,15 @@
 const fs = require('fs')
 
-configPath = process.env.CONFIG_PATH || "config.json"
+configPath = process.env.CONFIG_PATH
 
-config = null
-try {
-    config = JSON.parse(fs.readFileSync(configPath))
-} catch (e) {
-    console.log("Failed to parse config", e.message)
+if(configPath){
+    try {
+        config = JSON.parse(fs.readFileSync(configPath))
+    }catch(e){
+        console.log("Failed to parse config", e.message)
+    }
+}else{
+    config = process.env
 }
-
 
 module.exports = config
