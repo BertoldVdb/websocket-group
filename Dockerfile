@@ -12,7 +12,6 @@ WORKDIR /home/$user/websocket-group
 RUN chown $user:$user --recursive .
 USER $user
 
-ENV CONFIG_PATH /config/websocket-group.json
 ENV NODE_ENV production
 RUN npm install --only=production
 CMD [ "npm", "start" ]
