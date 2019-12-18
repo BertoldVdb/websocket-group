@@ -2,7 +2,7 @@
   "name": "websocket-group",
   "version": "0.1.0",
   "repository": {
-    "url": "https://github.com/BertoldVdb/websocket-group.git",
+    "url": "https://github.com/WaxieSDR/websocket-group.git",
     "type": "git"
   },
   "description": "Simple node.js server that lets different websocket clients talk to each other. ",
