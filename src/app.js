@@ -8,6 +8,10 @@ async function initApp() {
     app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms'))
     app.use(express.json());
     app.use(helmet())
+    app.use(helmet.contentSecurityPolicy({directives: {defaultSrc: ["'self'"]}}))
+    app.use(helmet.noCache())
+    app.use(helmet.permittedCrossDomainPolicies())
+    app.use(helmet.referrerPolicy({policy: 'no-referrer'}))
 
     app.use((req, res, next) => {
         res.sendError = ((res, code, msg) => {
