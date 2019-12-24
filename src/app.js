@@ -2,6 +2,7 @@ async function initApp() {
     const express = require('express')
     const helmet = require('helmet')
     const morgan = require('morgan')
+    const path = require('path');
 
     const app = express();
     app.set('trust proxy', true)
@@ -12,6 +13,8 @@ async function initApp() {
     app.use(helmet.noCache())
     app.use(helmet.permittedCrossDomainPolicies())
     app.use(helmet.referrerPolicy({policy: 'no-referrer'}))
+
+    app.use(express.static(path.join(__dirname, 'static')))
 
     app.use((req, res, next) => {
         res.sendError = ((res, code, msg) => {

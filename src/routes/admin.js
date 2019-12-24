@@ -25,10 +25,17 @@ router.use((req, res, next) => {
     }
 })
 
+router.get('/turn-credential', (req, res) => {
+    try {
+        res.send(require('../modules/turn').createCredentials())
+    } catch (e) {
+        res.sendError(400, e.message)
+    }
+})
+
 router.get('/rooms/', (req, res) => {
     try {
-        result = require('../modules/proxy').listRooms();
-        res.send(result)
+        res.send(require('../modules/proxy').listRooms())
     } catch (e) {
         res.sendError(400, e.message)
     }
@@ -45,8 +52,7 @@ function postRoom(req, res) {
     }
 
     try {
-        result = require('../modules/proxy').createRoom(roomId, req.body.options, req.header('Host'));
-        res.send(result)
+        res.send(require('../modules/proxy').createRoom(roomId, req.body.options, req.header('Host')))
     } catch (e) {
         res.sendError(400, e.message)
     }

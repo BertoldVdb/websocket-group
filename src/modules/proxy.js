@@ -1,5 +1,5 @@
 const TimeoutHandler = require('./timeout')
-const Turn = require('./turn')
+const turn = require('./turn')
 
 class Room {
     constructor(roomId, options, doneCb) {
@@ -250,7 +250,7 @@ module.exports.createRoom = function (roomId, options, host) {
     }, options)
 
     if (options.turn === true) {
-        options.turn = Turn.createCredentials()
+        options.turn = turn.createCredentials()
     }
 
     rooms.set(roomId, new Room(roomId, options, () => {
